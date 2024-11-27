@@ -88,7 +88,7 @@
 /datum/quirk/fence
 	name = "Fencer"
 	desc = "I have trained in agile sword fighting. I dodge more easily and have stashed my rapier nearby"
-	value = 6
+	value = 4
 
 /datum/quirk/fence/on_spawn()
 	var/mob/living/carbon/human/H = quirk_holder
@@ -589,7 +589,7 @@
 /datum/quirk/pacifist
 	name = "Endowment Curse"
 	desc = "I was cursed with endowment... This makes life hard."
-	value = -2
+	value = -5
 
 /datum/quirk/pacifist/on_spawn()
 	var/mob/living/carbon/human/H = quirk_holder
