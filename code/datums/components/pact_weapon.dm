@@ -39,7 +39,7 @@
 	if(istype(parent, /obj/item/rogueweapon))
 		RegisterSignal(parent, COMSIG_ATOM_ATTACK_HAND_RIGHT, PROC_REF(attack_right))
 		RegisterSignal(parent, COMSIG_ITEM_EQUIPPED, PROC_REF(equipped))
-		RegisterSignal(parent, COMSIG_ITEM_DROPPED, PROC_REF(dropped))
+		// RegisterSignal(parent, COMSIG_ITEM_DROPPED, PROC_REF(dropped))
 
 /datum/component/pact_weapon/proc/attack_right(obj/item/source, mob/user)
 	var/mob/living/target = user
@@ -64,7 +64,7 @@
 	if(target != weapon_owner) //you dont own the weapon
 		to_chat(weapon_owner, span_warning("[target] tried to equip [weapon]!")) //message the rightful owner 
 		to_chat(target, span_danger("[weapon] slips from your grasp!")) //message the wielder
-		target.stun(10) //this is not yours, drop it
+		target.Stun(10) //this is not yours, drop it
 /*
 /datum/component/pact_weapon/proc/dropped(obj/item/source, mob/user)
 	var/mob/living/target = user
