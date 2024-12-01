@@ -64,7 +64,7 @@
 	if(target != weapon_owner) //you dont own the weapon
 		to_chat(weapon_owner, span_warning("[target] tried to equip [weapon]!")) //message the rightful owner 
 		to_chat(target, span_danger("[weapon] slips from your grasp!")) //message the wielder
-		target.Stun(10) //this is not yours, drop it
+		target.dropItemToGround(source) //this is not yours, drop it
 /*
 /datum/component/pact_weapon/proc/dropped(obj/item/source, mob/user)
 	var/mob/living/target = user
