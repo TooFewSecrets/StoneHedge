@@ -1390,7 +1390,7 @@
 		return FALSE
 	if(user != null && src == user)
 		return FALSE
-	if(bility || alpha == 0)//cloaked
+	if(invisibility || alpha == 0)//cloaked
 		return FALSE
 	// Now, are they viewable by a camera? (This is last because it's the most intensive check)
 	if(!near_camera(src))
