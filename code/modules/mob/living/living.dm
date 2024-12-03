@@ -1390,7 +1390,7 @@
 		return FALSE
 	if(user != null && src == user)
 		return FALSE
-	if(invisibility || alpha == 0)//cloaked
+	if(bility || alpha == 0)//cloaked
 		return FALSE
 	// Now, are they viewable by a camera? (This is last because it's the most intensive check)
 	if(!near_camera(src))
@@ -1918,7 +1918,7 @@
 					if(prob(probby)) // first success will ping their location, but you need to succeed twice in a row to fully dispel magical invisibility with just your eyes - this should not be an easy thing to do
 						emote("huh")
 						to_chat(M, span_danger("[src]'s supernatural perception dispels my invisbility!"))
-						animate(user, alpha = 255, time = 1 SECONDS, easing = EASE_IN) // this will not remove the chat message when the invis spell actually wears off, slop code, but better than godmode invis
+						animate(M, alpha = 255, time = 1 SECONDS, easing = EASE_IN) // this will not remove the chat message when the invis spell actually wears off, slop code, but better than godmode invis
 			else
 				if(M.m_intent == MOVE_INTENT_SNEAK)
 					if(M.client?.prefs.showrolls)
