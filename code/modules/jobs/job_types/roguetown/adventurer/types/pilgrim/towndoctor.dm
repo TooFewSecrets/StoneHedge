@@ -43,7 +43,7 @@
 
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, "[type]")
 	if(H.mind)
-		H.mind.adjust_skillrank_up_to(/datum/skill/combat/knives, 4, TRUE) // VERY good with a knife.
+		H.mind.adjust_skillrank_up_to(/datum/skill/combat/knives, 3, TRUE)
 		H.mind.adjust_skillrank_up_to(/datum/skill/combat/wrestling, 2, TRUE)
 		H.mind.adjust_skillrank_up_to(/datum/skill/craft/crafting, 3, TRUE)
 		H.mind.adjust_skillrank_up_to(/datum/skill/craft/carpentry, 3, TRUE)
