@@ -26,6 +26,9 @@
 			chance2hit += user.STAPER
 		if(used_intent.blade_class == BCLASS_CUT)
 			chance2hit += round(user.STAPER/2)
+		if(used_intent.blade_class == BCLASS_PICK) // Daggers are used on downed people to finish them off, not standing mid-fight. Downed strikes always hit target and ignore accuracy calc (above mobility flag check).
+			chance2hit -= 30 // Because daggers are WLENGTH_SHORT, this is effectively -20 accuracy, then PER, aim intent, and skill come in. Sucks for pickaxe enjoyers, but improvised weapon should be hard to aim.
+
 
 	if(I)
 		if(I.wlength == WLENGTH_SHORT)
@@ -254,7 +257,7 @@
 					else
 						flash_fullscreen("blackflash2")
 
-					var/dam2take = round((get_complex_damage(AB,user,used_weapon.blade_dulling)/2),1)
+					var/dam2take = round((get_complex_damage(AB,user,used_weapon.blade_dulling)/8),1)
 					if(dam2take)
 						used_weapon.take_damage(max(dam2take,1), BRUTE, used_weapon.d_type)
 					return TRUE
