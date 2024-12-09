@@ -8,9 +8,11 @@
 	if(target.grabbedby == user)
 		if(user.grab_state >= GRAB_AGGRESSIVE)
 			return zone
-	if(!(target.mobility_flags & MOBILITY_STAND))
+	if(!(target.mobility_flags & MOBILITY_STAND)) // Fallen enemies will always be hit in the target zone.
 		return zone
-	if( (target.dir == turn(get_dir(target,user), 180)))
+	if( (target.dir == turn(get_dir(target,user), 180))) // Perfect backstabs always land on target. (This makes no sense for facial features, but whatever.)
+		return zone
+	if(!(target.cmode)) // Someone who isn't alert will let you line up a shot. Maybe this should just be a modifier.
 		return zone
 
 	var/chance2hit = 0
@@ -26,9 +28,8 @@
 			chance2hit += user.STAPER
 		if(used_intent.blade_class == BCLASS_CUT)
 			chance2hit += round(user.STAPER/2)
-		if(used_intent.blade_class == BCLASS_PICK)
-			chance2hit -= 30
-
+		if(used_intent.blade_class == BCLASS_PICK) // Daggers are used on downed people to finish them off, not standing mid-fight. Downed strikes always hit target and ignore accuracy calc (above mobility flag check).
+			chance2hit -= 30 // Because daggers are WLENGTH_SHORT, this is effectively -20 accuracy, then PER, aimed style, and skill come in. Sucks for pickaxe enjoyers, but improvised weapon should be hard to aim.
 
 	if(I)
 		if(I.wlength == WLENGTH_SHORT)
