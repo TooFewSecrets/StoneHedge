@@ -98,6 +98,8 @@
 	lasthitter = target
 	.=..()
 	if(target)
+		if(src.stat != CONSCIOUS)
+			return
 		wander = TRUE
 		if(target == newtarg)
 			linepoint(target)
