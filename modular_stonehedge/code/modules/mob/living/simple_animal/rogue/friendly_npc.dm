@@ -364,6 +364,8 @@ GLOBAL_LIST_EMPTY_TYPED(patrol_points, /obj/effect/landmark/townpatrol)
 	.=..()
 	if(target)
 		wander = TRUE
+		if(src.stat != CONSCIOUS)
+			return
 		if(target == newtarg)
 			linepoint(target)
 			if(ishuman(target) && Adjacent(target))
