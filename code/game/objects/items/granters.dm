@@ -320,6 +320,7 @@
 	to_chat(user, span_notice("I start reading about casting [spellname]..."))
 
 /obj/item/book/granter/spell/on_reading_finished(mob/living/user)
+	user.calculate_spell_slots()
 	if(user.spell_slots - spell_slot_cost >= 0)
 		to_chat(user, span_notice("I feel like you've experienced enough to cast [spellname]!"))
 		var/obj/effect/proc_holder/spell/S = new spell
